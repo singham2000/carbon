@@ -2,7 +2,10 @@ import React from 'react';
 import VideoContainer from './VideoContainer';
 import Answer from '../Assets/phone-call-svgrepo-com.svg';
 import Hang from '../Assets/phone-call-cancel-reject-svgrepo-com.svg';
+
 const Home = () => {
+
+
     return (
         <div className='h-max bg-cyan-900'>
             <div className='px-5 sm:pt-40 pt-6 flex items-center justify-center gap-10 flex-wrap'>
@@ -25,7 +28,7 @@ const Home = () => {
                     </button>
                 </div>
                 <div className='bg-cyan-800 p-10 rounded-full'>
-                    <input type="text" className='bg-cyan-800'/>
+                    <input type="text" className='bg-cyan-800' />
                 </div>
             </div>
         </div>
