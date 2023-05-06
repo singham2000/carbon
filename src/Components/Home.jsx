@@ -27,9 +27,7 @@ const Home = () => {
                         </span>
                     </button>
                 </div>
-                <div className='bg-cyan-800 p-10 rounded-full'>
-                    <input type="text" className='bg-cyan-800' />
-                </div>
+              
             </div>
         </div>
     )
