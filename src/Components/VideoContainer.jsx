@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState, createRef, useContext } from 'react'
-import { servers, firestore } from "../firebase";
+import { servers, firestore } from "../utils/firebase";
 import permissions from '../contexts/permissions';
 
 const VideoContainer = (props) => {
     console.log(servers);
     // const pc = new RTCPeerConnection(servers);
-    const { perms, setPerms } = useContext(permissions);
+    const { perms } = useContext(permissions);
     const [loading, setLoading] = useState(true);
     let localStream = useRef(null);
     const webcamRef = createRef();
