@@ -9,6 +9,7 @@ import cam from '../Assets/cam-svgrepo-com.svg';
 import camclose from '../Assets/cam-disabled-svgrepo-com.svg';
 
 const Navigation = () => {
+    // eslint-disable-next-line no-unused-vars
     const [date, setDate] = useState("Fetching...")
     const { perms, setPerms } = useContext(Permissions);
     useEffect(() => {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navigation from "./Components/Navigation";
 import Home from "./Components/Home";
+// eslint-disable-next-line no-unused-vars
 import CreateMeeting from "./Components/createMeeting";
 import permissions from "./contexts/permissions";
 import prefs from "./contexts/prefs";
@@ -15,10 +16,10 @@ function App() {
     <permissions.Provider value={{ perms, setPerms }}>
       <div className="h-screen bg-cyan-900">
         <Navigation />
-        {/* <Home /> */}
-        <prefs.Provider value={{ meet, setMeet }}>
+        <Home />
+        {/* <prefs.Provider value={{ meet, setMeet }}>
           <CreateMeeting />
-        </prefs.Provider>
+        </prefs.Provider> */}
       </div>
     </permissions.Provider>
   );

@@ -4,20 +4,29 @@ import permissions from '../contexts/permissions';
 
 const VideoContainer = (props) => {
     console.log(servers);
-    // const pc = new RTCPeerConnection(servers);
+    const pc = new RTCPeerConnection(servers);
+    let remoteStream = useRef(null);
     const { perms } = useContext(permissions);
     const [loading, setLoading] = useState(true);
     let localStream = useRef(null);
     const webcamRef = createRef();
+
     useEffect(() => {
         const camGrab = async () => {
-            localStream.current = await navigator.mediaDevices.getUserMedia({ video: perms.video, audio: perms.audio });
-            setLoading(false);
-            webcamRef.current.srcObject = localStream.current;
-            console.log(webcamRef.current.src)
-        }
+            try {
+                localStream.current = await navigator.mediaDevices.getUserMedia({ video: perms.video, audio: perms.audio });
+                remoteStream.current = new MediaStream()
+                setLoading(false);
+                if (webcamRef.current) {
+                    webcamRef.current.srcObject = localStream.current;
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        };
         camGrab();
-    }, [webcamRef, perms.video, perms.audio])
+    }, [webcamRef, perms.video, perms.audio]);
+
 
     return (
         <div>
