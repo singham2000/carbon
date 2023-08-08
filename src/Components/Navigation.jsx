@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext, useState, useEffect } from 'react';
 import Clock from 'react-live-clock';
 import Permissions from '../contexts/permissions';
+import swal from 'sweetalert';
 
 import Phone from '../Assets/phone-rotary-svgrepo-com.svg';
 import mic from '../Assets/mic-svgrepo-com.svg';
@@ -10,12 +12,16 @@ import camclose from '../Assets/cam-disabled-svgrepo-com.svg';
 
 const Navigation = () => {
     // eslint-disable-next-line no-unused-vars
-    const [date, setDate] = useState("Fetching...")
-    const { perms, setPerms } = useContext(Permissions);
-    useEffect(() => {
-        var date = { currentTime: new Date().toLocaleString() };
-        setDate(date.currentTime);
-    }, [])
+    // const [date, setDate] = useState("Fetching...")
+    const { perms, setPerms, callId } = useContext(Permissions);
+    // useEffect(() => {
+    //     var date = { currentTime: new Date().toLocaleString() };
+    //     setDate(date.currentTime);
+    // }, [])
+
+    const showid = () => {
+        swal(callId);
+    }
 
     return (
 
@@ -45,6 +51,9 @@ const Navigation = () => {
                         <img src={camclose} className='h-10' alt="mic-on" />
                         <span className='max-sm:hidden font-bold text-white'>Cam Off</span>
                     </button>}
+                <button onClick={showid} className='rounded-full bg-sky-600 text-gray-900 w-32 max-sm:w-14 h-14 flex items-center justify-center'>
+                    <span className='max-sm:hidden font-bold text-white text-base'>Show ID</span>
+                </button>
             </div>
             <div className='text-white text-xl max-sm:text-lg'>
                 <Clock format={'HH:mm:ss'} ticking={true} blinking={true} timezone={'Asia/Calcutta'} />
